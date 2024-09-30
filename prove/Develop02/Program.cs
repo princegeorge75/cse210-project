@@ -13,8 +13,8 @@ class Program
             Console.WriteLine("\nMenu:");
             Console.WriteLine("1. Write a new entry");
             Console.WriteLine("2. Display journal");
-            Console.WriteLine("3. Save journal");
-            Console.WriteLine("4. Load journal");
+            Console.WriteLine("3. Save journal (CSV)");
+            Console.WriteLine("4. Load journal (CSV)");
             Console.WriteLine("5. Quit");
             Console.Write("Enter your choice: ");
             choice = int.Parse(Console.ReadLine());
@@ -37,17 +37,17 @@ class Program
                     break;
 
                 case 3:
-                    // Save journal to file
-                    Console.Write("Enter the filename to save: ");
+                    // Save journal to CSV file
+                    Console.Write("Enter the filename to save (e.g., journal.csv): ");
                     string saveFilename = Console.ReadLine();
-                    theJournal.SaveJournal(saveFilename);
+                    theJournal.SaveJournalAsCSV(saveFilename);
                     break;
 
                 case 4:
-                    // Load journal from file
-                    Console.Write("Enter the filename to load: ");
+                    // Load journal from CSV file
+                    Console.Write("Enter the filename to load (e.g., journal.csv): ");
                     string loadFilename = Console.ReadLine();
-                    theJournal.LoadJournal(loadFilename);
+                    theJournal.LoadJournalFromCSV(loadFilename);
                     break;
 
                 case 5:
