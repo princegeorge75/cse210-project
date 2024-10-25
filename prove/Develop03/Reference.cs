@@ -5,16 +5,16 @@ public class Reference
     private int _verse;
     private int _endVerse;
 
-    //constructor for a single verse
+    // Constructor for a single verse
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        _endVerse = -1; //means there's no endVerse
+        _endVerse = -1; // Indicates there's no endVerse
     }
 
-    //Constructor for a verse range
+    // Constructor for a verse range
     public Reference(string book, int chapter, int verse, int endVerse)
     {
         _book = book;
@@ -23,16 +23,17 @@ public class Reference
         _endVerse = endVerse;
     }
 
-    //Get the display text for the reference
+    // Get the display text for the reference
     public string GetDisplayText()
     {
-        if (endVerse == -1)
+        // Using the correct member variable names (_book and _endVerse)
+        if (_endVerse == -1)
         {
-            return $"{book} {_chapter}:{_verse}";
+            return $"{_book} {_chapter}:{_verse}";
         }
         else
         {
-            return $"{book} {_chapter}:{_verse}-{_endVerse}";
+            return $"{_book} {_chapter}:{_verse}-{_endVerse}";
         }
     }
 }

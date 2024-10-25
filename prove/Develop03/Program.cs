@@ -13,8 +13,12 @@ class Program
        // Create the scripture object
        Scripture scripture = new Scripture(reference, text);
 
-       //Main loop the words and display the scripture
-       while (scripture.IsCompletelyHidden())
+       //Display the scripture
+       Console.Clear();
+       Console.WriteLine(scripture.GetDisplayText());
+
+       //Now loop the words and display the scripture again
+       while (!scripture.IsCompletelyHidden())
        {
         Console.Clear(); //clear the console
 
@@ -32,7 +36,7 @@ class Program
        }
 
        //Hide a few random words
-       scripture.HideRandomWords(3);
+       scripture.HideRandomWords(1);
        }
 
         Console.WriteLine("All words are hidden. Goodbye!");
