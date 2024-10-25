@@ -14,7 +14,7 @@ class Program
        Scripture scripture = new Scripture(reference, text);
 
        //Main loop the words and display the scripture
-       while (!scripture.GetDisplayText());
+       while (scripture.IsCompletelyHidden())
        {
         Console.Clear(); //clear the console
 

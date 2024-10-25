@@ -15,40 +15,52 @@ public class Scripture
         {
             _words.Add(new Word(word));
         }
+    }
 
-        //Hide a random number of words in the scripture
-        public void HideRandomWords(int numberToHide)
+    // Method to hide random number of words in the scripture
+    public void HideRandomWords(int numberToHide)
+    {
+        Random random = new Random();
+        int hiddenCount = 0;
+
+        //Keep trying to hide words untik the desired number is reached
+        while (hiddenCount < numberToHide)
         {
-            Random random = new Random();
-            for(int i = 0; i < numberToHide; i++)
+            int index = random.Next(_words.Count);
+
+            //Hide the word if it's not already hidden
+            if (!_words[index].IsHidden())
             {
-                int index = random.Next(_words.Count);
                 _words[index].Hide();
+                hiddenCount++;
             }
-        }
-
-        //Rwturn the scripture with the hidden words replaced by blanks
-        public string GetDisplayText()
-        {
-            string displayText = _reference.GetDisplayText() + "\n"; //show the reference first
-            foreach (Word word in _words)
-            {
-                displayText += word.GetDisplayText() + " ";
-            }
-            return displayText.Trim(); //Trim extra spaces at the end
         }
     }
+        
+    //Rwturn the scripture with the hidden words replaced by blanks
+    public string GetDisplayText()
+    {
+        string displayText = _reference.GetDisplayText() + "\n"; //show the reference first
+        foreach (Word word in _words)
+        {
+            displayText += word.GetDisplayText() + " ";
+        }
+        return displayText.Trim(); //Trim extra spaces at the end
+    }
+    
 
     //Check if all words are hidden
     public bool IsCompletelyHidden()
     {
         foreach (Word word in _words)
         {
-            if(!word.isHidden())
+            if(!word.IsHidden())
             {
                 return false;
             }
         }
         return true;
     }
+
+    
 }
