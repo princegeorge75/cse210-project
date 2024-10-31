@@ -1,0 +1,4 @@
+Goal Type: SimpleGoal, Score: 0, Color: BLUE, Completed: False
+Goal Type: EternalGoal, Score: 60, Color: Green, (Eternal Goal)
+Goal Type: ChecklistGoal, Score: 0, Color: RED, Completed: 0/40
+Total Points: 60
